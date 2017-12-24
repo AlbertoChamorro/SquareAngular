@@ -1,0 +1,37 @@
+<!-- example mark maps -->
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <h1>  Welcome to {{ title }}! </h1>
+    <div class="form-group">
+          <input type="text"
+                class="form-control"
+                placeholder="your name"
+                [(ngModel)]="name">
+          <span class="lead">ngModel is <span class="text-primary">{{ name }}</span> </span>
+          <button class="btn btn-success pull-right"
+          [disabled]="!disabled"
+          (click)="make()"> Click me!</button>
+    </div>
+    <hr>
+    <!-- ngFor/ngIf -->
+    <ul class="list-group">
+      <ng-container *ngFor="let site of sites; let i = index" [ngSwitch]="site.closeTime">
+        <!-- *ngIf="site.active" -->
+          <!-- <a>
+              <li [ngStyle]="{color: (site.active) ? 'black' : 'gray'}"
+                  [ngClass]="{'par-number': (i+1) % 2 !== 0}"
+                  [custom]="site.plan"
+                  count-analitycs>
+                    {{ site.name }} -
+                    <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Lejano</span>
+                    <span *ngSwitchCase="2" [ngStyle]="{color: 'yellow'}">Cercano</span>
+                    <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Muy cercano</span>
+              </li>
+          </a> -->
+          <li class="list-group-item"> {{ site.name }} </li>
+      </ng-container>
+    </ul>
+</div>
