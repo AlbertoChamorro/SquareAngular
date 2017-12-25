@@ -1,37 +1,45 @@
-<!-- example mark maps -->
+<!-- Nabvar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">-</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Square</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Inicio<span class="sr-only">(square current)</span></a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+<!-- End Navbar -->
+<!-- Google Maps -->
 <agm-map [latitude]="lat" [longitude]="lng">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- Google Maps -->
+
 <div class="container">
-    <h1>  Welcome to {{ title }}! </h1>
-    <div class="form-group">
-          <input type="text"
-                class="form-control"
-                placeholder="your name"
-                [(ngModel)]="name">
-          <span class="lead">ngModel is <span class="text-primary">{{ name }}</span> </span>
-          <button class="btn btn-success pull-right"
-          [disabled]="!disabled"
-          (click)="make()"> Click me!</button>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Lugares Cercanos</h2>
+            <ul class="list-group">
+                <ng-container *ngFor="let site of sites" [ngSwitch]="site.closeTime">
+                    <li class="list-group-item"> {{ site.name }} </li>
+                </ng-container>
+            </ul>
+        </div>
+        <div class=" col-md-offset-2 col-md-6">
+            <h2>Destacados</h2>
+        </div>
     </div>
-    <hr>
-    <!-- ngFor/ngIf -->
-    <ul class="list-group">
-      <ng-container *ngFor="let site of sites; let i = index" [ngSwitch]="site.closeTime">
-        <!-- *ngIf="site.active" -->
-          <!-- <a>
-              <li [ngStyle]="{color: (site.active) ? 'black' : 'gray'}"
-                  [ngClass]="{'par-number': (i+1) % 2 !== 0}"
-                  [custom]="site.plan"
-                  count-analitycs>
-                    {{ site.name }} -
-                    <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Lejano</span>
-                    <span *ngSwitchCase="2" [ngStyle]="{color: 'yellow'}">Cercano</span>
-                    <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Muy cercano</span>
-              </li>
-          </a> -->
-          <li class="list-group-item"> {{ site.name }} </li>
-      </ng-container>
-    </ul>
 </div>
