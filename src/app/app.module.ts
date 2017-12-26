@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 // components
 import { AppComponent } from './app.component';
+import { ContactComponent } from './contact/contact.component';
 import { PlaceComponent } from './places/place.component';
 import { PlaceDetailComponent } from './place-details/place-detail.component';
 // modules
@@ -16,12 +17,14 @@ import { CountAnalitycsDirective } from './directives/count-analitycs.directive'
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
   {path: 'places',        component: PlaceComponent},
+  {path: 'contact', component: ContactComponent},
   {path: 'places/detail/:id', component: PlaceDetailComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContactComponent,
     PlaceComponent,
     PlaceDetailComponent,
     CustomDirective,
