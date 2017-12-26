@@ -1,3 +1,15 @@
+<ol class="breadcrumb">
+    <li><a routerLink="/places">Lúgares</a></li>
+    <li class="active">{{ place.name }}</li>
+</ol>
+
 <div class="container">
-    <h1>Detalle de lugares</h1>
+    <h2 class="lead">{{ place.name }}</h2>
+    <hr>
+    <small class="text-muted">{{ place.distance }} km</small>
+    <br>
+    <div class="well">
+        <p>{{ place.description }}</p>
+        <b>Suscripción: {{ place.plan }}</b>
+    </div>
 </div>
