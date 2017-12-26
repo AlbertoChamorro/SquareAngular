@@ -8,5 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 export class PlaceDetailComponent {
     constructor(private route: ActivatedRoute) {
         console.log('params - ', this.route.snapshot.params['id']);
+        console.log('query strings - ', this.route.snapshot.queryParams['action']);
     }
 }
