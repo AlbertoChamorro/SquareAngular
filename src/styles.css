@@ -7,3 +7,7 @@ agm-map {
   background-color: aliceblue;
   color: blue;
 }
+
+.navbar-inverse {
+  margin-bottom: 2px !important;
+}

@@ -8,8 +8,8 @@
         <div class="col-md-4">
             <h2>Lugares Cercanos</h2>
             <ul class="list-group">
-                <ng-container *ngFor="let site of sites" [ngSwitch]="site.closeTime">
-                    <li class="list-group-item"> {{ site.name }} </li>
+                <ng-container *ngFor="let place of places" [ngSwitch]="place.closeTime">
+                    <a routerLink="/places/detail/{{place.id}}"><li class="list-group-item"> {{ place.name }} </li></a>
                 </ng-container>
             </ul>
         </div>

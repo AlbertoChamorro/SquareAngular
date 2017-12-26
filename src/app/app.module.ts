@@ -16,7 +16,7 @@ import { CountAnalitycsDirective } from './directives/count-analitycs.directive'
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
   {path: 'places',        component: PlaceComponent},
-  {path: 'places/detail', component: PlaceDetailComponent},
+  {path: 'places/detail/:id', component: PlaceDetailComponent},
 ];
 
 @NgModule({
