@@ -13,6 +13,8 @@ import { Routes, RouterModule } from '@angular/router';
 // directives
 import { CustomDirective } from './directives/custom.directive';
 import { CountAnalitycsDirective } from './directives/count-analitycs.directive';
+// services
+import { PlaceService } from './services/place.services';
 
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
@@ -38,7 +40,7 @@ const routes: Routes = [
     }),
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [PlaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
