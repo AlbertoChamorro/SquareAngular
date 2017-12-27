@@ -20,6 +20,7 @@ import { PlaceService } from './services/place.services';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { HttpModule } from '@angular/http';
 
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule,
   ],
   providers: [PlaceService, AngularFireDatabase],
   bootstrap: [AppComponent]

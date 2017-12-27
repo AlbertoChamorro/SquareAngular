@@ -11,9 +11,17 @@ export class PlaceCreateComponent {
   constructor(private placeService: PlaceService) {}
 
   save() {
-      this.place.id = Date.now();
-      this.placeService.save(this.place);
-      alert('Se ha guardado un nuevo negocio...');
-      this.place = {};
+      var address = this.place.street + ',' + this.place.city + ',' + this.place.country;
+      this.placeService.getGeoData(address)
+             .subscribe(response => {
+                  //debugger;
+                  const location = response.json().results[0].geometry.location;
+                  this.place.lat = location.lat;
+                  this.place.lng = location.lng;
+                  this.place.id = Date.now();
+                  this.placeService.save(this.place);
+                  alert('Se ha guardado un nuevo negocio...');
+                  this.place = {};
+            });
   }
 }
