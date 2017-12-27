@@ -7,6 +7,9 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Lugares Cercanos</h2>
+            <div class="form-group">
+                <a class="btn btn-primary" routerLink="/places/create">Crear Nuevo Negocio</a>
+            </div>
             <ul class="list-group">
                 <ng-container *ngFor="let place of places" [ngSwitch]="place.closeTime">
                     <a routerLink="/places/detail/{{place.id}}" [queryParams]="{action: 'edit', prefered: 'google'}">

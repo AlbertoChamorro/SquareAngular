@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { PlaceComponent } from './places/place.component';
+import { PlaceCreateComponent } from './places/create/place-create.component';
 import { PlaceDetailComponent } from './place-details/place-detail.component';
 // modules
 import { FormsModule } from '@angular/forms'; // for to way data binding
@@ -23,6 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
   {path: 'places',        component: PlaceComponent},
+  {path: 'places/create', component: PlaceCreateComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'places/detail/:id', component: PlaceDetailComponent},
 ];
@@ -41,6 +43,7 @@ export const firebaseConfig = {
     AppComponent,
     ContactComponent,
     PlaceComponent,
+    PlaceCreateComponent,
     PlaceDetailComponent,
     CustomDirective,
     CountAnalitycsDirective
