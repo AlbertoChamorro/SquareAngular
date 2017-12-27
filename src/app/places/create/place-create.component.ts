@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PlaceService } from '../../services/place.services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-place-create',
@@ -7,8 +8,18 @@ import { PlaceService } from '../../services/place.services';
 })
 export class PlaceCreateComponent {
   place: any = {};
+  id: any    = null;
 
-  constructor(private placeService: PlaceService) {}
+  constructor(private placeService: PlaceService, private route: ActivatedRoute) {
+      this.id = route.snapshot.params['id'];
+      if (this.id != 'new') {
+          console.log('id ', this.id);
+          placeService.findPlace(this.id).valueChanges()
+            .subscribe(place => {
+                this.place = place;
+            });
+      }
+  }
 
   save() {
       var address = this.place.street + ',' + this.place.city + ',' + this.place.country;
@@ -18,9 +29,13 @@ export class PlaceCreateComponent {
                   const location = response.json().results[0].geometry.location;
                   this.place.lat = location.lat;
                   this.place.lng = location.lng;
-                  this.place.id = Date.now();
+                  var verboose   = 'editado';
+                  if (this.id === 'new') {
+                      this.place.id = Date.now();
+                      verboose   = 'guardado';
+                  }
                   this.placeService.save(this.place);
-                  alert('Se ha guardado un nuevo negocio...');
+                  alert('Se ha ' + verboose + ' un nuevo negocio...');
                   this.place = {};
             });
   }

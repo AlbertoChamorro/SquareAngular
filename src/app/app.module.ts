@@ -25,7 +25,7 @@ import { HttpModule } from '@angular/http';
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
   {path: 'places',        component: PlaceComponent},
-  {path: 'places/create', component: PlaceCreateComponent},
+  {path: 'places/create/:id', component: PlaceCreateComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'places/detail/:id', component: PlaceDetailComponent},
 ];

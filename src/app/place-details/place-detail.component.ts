@@ -13,8 +13,12 @@ export class PlaceDetailComponent {
     constructor(private route: ActivatedRoute, private placeService: PlaceService) {
         this.id = this.route.snapshot.params['id'];
         console.log('params - ', this.id);
-        console.log('query strings - ', this.route.snapshot.queryParams['action']);
-        this.place = placeService.findPlace(this.id);
+       // console.log('query strings - ', this.route.snapshot.queryParams['action']);
+        placeService.findPlace(this.id).valueChanges()
+                      .subscribe(place => {
+                          this.place = place;
+                      });
+
         console.log('place find -> ', this.place);
     }
 }

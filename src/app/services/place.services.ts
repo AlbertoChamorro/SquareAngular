@@ -12,15 +12,21 @@ export class PlaceService {
   }
 
   public findPlace(id) {
-    return this.places.filter((place) => { return place.id == id })[0] || null;
+    return this.afDB.object('places/' + id);
   }
 
   public save(place) {
     this.afDB.database.ref('places/' + place.id).set(place);
   }
+
+  public update(place) {
+    this.afDB.database.ref('places/' + place.id).set(place);
+  }
+
   public getGeoData(address) {
     const apiKeyGoogleMaps = 'AIzaSyCtSHKUqipE8nIz5gbXyMIIIi1SJ6_xyrc';
     const url = 'https://maps.google.com/maps/api/geocode/json?key=' + apiKeyGoogleMaps + '&address=' + address;
     return this.http.get(url);
   }
+
 }

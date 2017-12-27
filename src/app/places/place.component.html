@@ -8,13 +8,13 @@
         <div class="col-md-4">
             <h2>Lugares Cercanos</h2>
             <div class="form-group">
-                <a class="btn btn-primary" routerLink="/places/create">Crear Nuevo Negocio</a>
+                <a class="btn btn-primary" routerLink="/places/create/new">Crear Nuevo Negocio</a>
             </div>
             <ul class="list-group">
                 <ng-container *ngFor="let place of places" [ngSwitch]="place.closeTime">
-                    <a routerLink="/places/detail/{{place.id}}" [queryParams]="{action: 'edit', prefered: 'google'}">
+                    <a routerLink="/places/detail/{{ place.id }}">
                         <li class="list-group-item"> {{ place.name }}
-                            <a routerLink="/places/create" class="btn btn-default btn-xs pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         </li>
                     </a>
                 </ng-container>
