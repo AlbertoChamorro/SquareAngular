@@ -15,6 +15,10 @@ import { CustomDirective } from './directives/custom.directive';
 import { CountAnalitycsDirective } from './directives/count-analitycs.directive';
 // services
 import { PlaceService } from './services/place.services';
+// dependencies Firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
@@ -22,6 +26,15 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'places/detail/:id', component: PlaceDetailComponent},
 ];
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCpHpW7RhcgfALOn5Crx45Hf678oS86bIA',
+  authDomain: 'squareangular.firebaseapp.com',
+  databaseURL: 'https://squareangular.firebaseio.com',
+ // projectId: 'squareangular',
+  storageBucket: 'squareangular.appspot.com',
+  messagingSenderId: '136999254028'
+};
 
 @NgModule({
   declarations: [
@@ -39,8 +52,11 @@ const routes: Routes = [
       apiKey: 'AIzaSyDbC5YZ8SCY80SC0LZUVos_WcWE2LMd8MA'
     }),
     RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [PlaceService],
+  providers: [PlaceService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
