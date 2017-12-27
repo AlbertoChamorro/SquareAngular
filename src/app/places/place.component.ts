@@ -12,6 +12,10 @@ export class PlaceComponent {
     lng: number = -86.1030404;
 
     constructor(private placeService: PlaceService) {
-        this.places = placeService.getPlaces();
+        placeService.getPlaces().valueChanges()
+            .subscribe((places) => {
+                //debugger;
+                this.places = places;
+            });
     }
 }

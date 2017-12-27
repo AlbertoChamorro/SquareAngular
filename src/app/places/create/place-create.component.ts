@@ -11,6 +11,9 @@ export class PlaceCreateComponent {
   constructor(private placeService: PlaceService) {}
 
   save() {
+      this.place.id = Date.now();
       this.placeService.save(this.place);
+      alert('Se ha guardado un nuevo negocio...');
+      this.place = {};
   }
 }
