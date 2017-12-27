@@ -26,7 +26,11 @@ export class PlaceCreateComponent {
       this.placeService.getGeoData(address)
              .subscribe(response => {
                   //debugger;
-                  const location = response.json().results[0].geometry.location;
+                  const results = response.json().results;
+                  if (results == null || results.length == 0) {
+                      return alert('No se ha podido encontrar un lugar con las ubicaciones dadas.');
+                  }
+                  const location = results[0].geometry.location;
                   this.place.lat = location.lat;
                   this.place.lng = location.lng;
                   var verboose   = 'editado';
