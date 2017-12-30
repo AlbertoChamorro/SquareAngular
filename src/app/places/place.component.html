@@ -20,14 +20,17 @@
                             {{ place.name | uppercase }}
                             <br>
                             <small>
-                               Creado el {{ place.id | date: 'mediumTime' | uppercase }}
+                               Creado el {{ place.id | date: 'medium' | uppercase }}
                                <!-- medium, mediumTime, fullDate, short, shortTime -->
                             </small>
                             <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right">
                               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
                             <br>
-                            {{ '12312312.24123' | number: '1.2-2' }}
+                            <!-- number: '1.2-2' |  -->
+                            <span class="text-warning"> {{ '123122.24893' | number: '1.2-2' }}  </span> |
+                            <span class="text-danger">  {{ '123122.24893' | percent: '1.2-2' }} </span> |
+                            <span class="text-muted"> {{ '123122.24893' | currency: 'NIO': 'symbol-narrow': '1.2-2' }} </span>
 
                         </li>
                     </a>
