@@ -10,7 +10,10 @@ export class PlaceService {
 
   public getPlaces() {
    // return this.afDB.list('places/');
-      return this.http.get(this.API_ENDPOINT + '/places.json');
+      return this.http.get(this.API_ENDPOINT + '/.json')
+                    .map( response => {
+                        return response.json().places;
+                    });
   }
 
   public findPlace(id) {

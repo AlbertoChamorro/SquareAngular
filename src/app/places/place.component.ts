@@ -16,9 +16,7 @@ export class PlaceComponent {
         //.valueChanges()
             .subscribe((places) => {
                 //debugger;
-               // var vm = this;
-                this.places = places.json();
-                this.places = Object.keys(this.places).map(key => { return this.places[key]; });
+                this.places = Object.keys(places).map(key => { return places[key]; });
                 //debugger;
             });
     }
