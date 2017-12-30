@@ -11,3 +11,7 @@ agm-map {
 .navbar-inverse {
   margin-bottom: 2px !important;
 }
+
+.control-label {
+  text-align: left !important;
+}
