@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { PlaceService } from '../services/place.services';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-place',
   templateUrl: './place.component.html'
 })
+
 export class PlaceComponent {
     title = 'Squared App';
     places: any = [];
@@ -18,6 +20,9 @@ export class PlaceComponent {
                 //debugger;
                 this.places = Object.keys(places).map(key => { return places[key]; });
                 //debugger;
+            }, (error) => {
+               console.log(error);
+               swal('Mensaje de error', 'Ha ocurrido un error, intente de nuevo más tarde!', 'error');
             });
     }
 }
