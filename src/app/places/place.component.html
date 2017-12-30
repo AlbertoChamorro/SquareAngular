@@ -16,8 +16,15 @@
             <ul class="list-group">
                 <ng-container *ngFor="let place of places">
                     <a routerLink="/places/detail/{{ place.id }}">
-                        <li class="list-group-item"> {{ place.name }}
-                            <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <li class="list-group-item">
+                            {{ place.name | uppercase }}
+                            <br>
+                            <small>
+                                {{ place.id | date | uppercase }}
+                            </small>
+                            <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
                         </li>
                     </a>
                 </ng-container>
