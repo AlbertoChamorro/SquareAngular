@@ -38,9 +38,13 @@ export class PlaceCreateComponent {
                       this.place.id = Date.now();
                       verboose   = 'guardado';
                   }
-                  this.placeService.save(this.place);
-                  alert('Se ha ' + verboose + ' un nuevo negocio...');
-                  this.place = {};
+                  this.placeService.save(this.place).subscribe(
+                     res => {
+                        console.log(res);
+                        alert('Se ha ' + verboose + ' un nuevo negocio...');
+                        this.place = {};
+                  });
+
             });
   }
 }

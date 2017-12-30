@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 @Injectable()
 
 export class PlaceService {
+  API_ENDPOINT = 'https://squareangular.firebaseio.com';
   places: any = [];
   constructor(private afDB: AngularFireDatabase, private http: Http) {}
 
@@ -16,7 +17,11 @@ export class PlaceService {
   }
 
   public save(place) {
-    this.afDB.database.ref('places/' + place.id).set(place);
+    //this.afDB.database.ref('places/' + place.id).set(place);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.API_ENDPOINT + '/places.json', place, {headers: headers});
   }
 
   public update(place) {
