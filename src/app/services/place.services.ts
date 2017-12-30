@@ -9,7 +9,8 @@ export class PlaceService {
   constructor(private afDB: AngularFireDatabase, private http: Http) {}
 
   public getPlaces() {
-    return this.afDB.list('places/');
+   // return this.afDB.list('places/');
+      return this.http.get(this.API_ENDPOINT + '/places.json');
   }
 
   public findPlace(id) {
