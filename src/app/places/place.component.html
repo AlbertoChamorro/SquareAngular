@@ -20,11 +20,15 @@
                             {{ place.name | uppercase }}
                             <br>
                             <small>
-                                {{ place.id | date | uppercase }}
+                               Creado el {{ place.id | date: 'mediumTime' | uppercase }}
+                               <!-- medium, mediumTime, fullDate, short, shortTime -->
                             </small>
                             <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right">
                               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
+                            <br>
+                            {{ '12312312.24123' | number: '1.2-2' }}
+
                         </li>
                     </a>
                 </ng-container>
