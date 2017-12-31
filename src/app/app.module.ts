@@ -25,6 +25,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HttpModule } from '@angular/http';
 // pipes customize
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
+import { PlaceScaffoldUnitTestComponent } from './place-scaffold-unit-test/place-scaffold-unit-test.component';
 
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
@@ -52,7 +53,8 @@ export const firebaseConfig = {
     PlaceDetailComponent,
     CustomDirective,
     CountAnalitycsDirective,
-    LinkifystrPipe
+    LinkifystrPipe,
+    PlaceScaffoldUnitTestComponent
   ],
   imports: [
     BrowserModule,
