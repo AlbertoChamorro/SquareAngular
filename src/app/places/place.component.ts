@@ -7,7 +7,7 @@ import swal from 'sweetalert2';
   selector: 'app-place',
   templateUrl: './place.component.html',
   animations: [
-      trigger('containerFadeAnimation', [
+      trigger('fadeAnimation', [
           state('initialState', style({
               opacity: 0,
               // backgroundColor: 'green',

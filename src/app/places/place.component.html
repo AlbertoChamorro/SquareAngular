@@ -37,7 +37,7 @@
                 </ng-container>
             </ul>
         </div>
-        <div class="col-md-offset-2 col-md-6" [@containerFadeAnimation]="animationState">
+        <div class="col-md-offset-2 col-md-6" [@fadeAnimation]="animationState">
             <h2>Destacados</h2>
             <ng-container *ngFor="let place of places">
                 <div class="bg-warning fix-space" *ngIf="place.plan == 'pagado'">
