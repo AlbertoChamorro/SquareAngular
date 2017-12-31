@@ -15,29 +15,30 @@
             </div>
             <ul class="list-group">
                 <ng-container *ngFor="let place of places">
-                    <a routerLink="/places/detail/{{ place.id }}">
-                        <li class="list-group-item">
-                            {{ place.name | uppercase }}
-                            <br>
-                            <small>
-                               Creado el {{ place.id | date: 'medium' | uppercase }}
-                               <!-- medium, mediumTime, fullDate, short, shortTime -->
-                            </small>
-                            <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right">
+                    <li class="list-group-item">
+                        <a routerLink="/places/detail/{{ place.id }}">
+                           <h4>{{ place.name | uppercase }}</h4>
+                           <a routerLink="/places/create/{{ place.id }}" class="btn btn-default btn-xs pull-right">
                               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            </a>
-                            <br>
-                            <!-- number: '1.2-2' |  -->
-                            <span class="text-warning"> {{ '123122.24893' | number: '1.2-2' }}  </span> |
-                            <span class="text-danger">  {{ '123122.24893' | percent: '1.2-2' }} </span> |
-                            <span class="text-muted"> {{ '123122.24893' | currency: 'NIO': 'symbol-narrow': '1.2-2' }} </span>
+                           </a>
+                        </a><br>
+                        <small class="text-muted">
+                           <!-- medium, mediumTime, fullDate, short, shortTime -->
+                            Creado el {{ place.id | date: 'medium' | uppercase }}
+                        </small>
+                        <br>
+                        <!--
+                        <span class="text-warning"> {{ '123122.24893' | number: '1.2-2' }}  </span> |
+                        <span class="text-danger">  {{ '123122.24893' | percent: '1.2-2' }} </span> |
+                        <span class="text-muted"> {{ '123122.24893' | currency: 'NIO': 'symbol-narrow': '1.2-2' }} </span>
+                        -->
 
-                        </li>
-                    </a>
+                        <p [innerHTML]="place.description | linkifystr"></p>
+                    </li>
                 </ng-container>
             </ul>
         </div>
-        <div class=" col-md-offset-2 col-md-6">
+        <div class="col-md-offset-2 col-md-6">
             <h2>Destacados</h2>
         </div>
     </div>

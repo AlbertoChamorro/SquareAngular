@@ -21,6 +21,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HttpModule } from '@angular/http';
+// pipes customize
+import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 
 const routes: Routes = [
   {path: '',              component: PlaceComponent},
@@ -47,7 +49,8 @@ export const firebaseConfig = {
     PlaceCreateComponent,
     PlaceDetailComponent,
     CustomDirective,
-    CountAnalitycsDirective
+    CountAnalitycsDirective,
+    LinkifystrPipe
   ],
   imports: [
     BrowserModule,
