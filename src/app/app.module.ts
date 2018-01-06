@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // components
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { PlaceComponent } from './places/place.component';
@@ -17,6 +19,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CustomDirective } from './directives/custom.directive';
 import { CountAnalitycsDirective } from './directives/count-analitycs.directive';
 // services
+import { AuthService } from './services/auth.services';
 import { PlaceService } from './services/place.services';
 // dependencies Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -28,11 +31,13 @@ import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 import { PlaceScaffoldUnitTestComponent } from './place-scaffold-unit-test/place-scaffold-unit-test.component';
 
 const routes: Routes = [
-  {path: '',              component: PlaceComponent},
-  {path: 'places',        component: PlaceComponent},
-  {path: 'places/create/:id', component: PlaceCreateComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'places/detail/:id', component: PlaceDetailComponent},
+  {path: '',                   component: PlaceComponent},
+  {path: 'login',              component: LoginComponent},
+  {path: 'register',           component: RegisterComponent},
+  {path: 'places',             component: PlaceComponent},
+  {path: 'places/create/:id',  component: PlaceCreateComponent},
+  {path: 'contact',            component: ContactComponent},
+  {path: 'places/detail/:id',  component: PlaceDetailComponent},
 ];
 
 export const firebaseConfig = {
@@ -47,6 +52,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    RegisterComponent,
     ContactComponent,
     PlaceComponent,
     PlaceCreateComponent,
@@ -69,7 +76,7 @@ export const firebaseConfig = {
     HttpModule,
     BrowserAnimationsModule
   ],
-  providers: [PlaceService, AngularFireDatabase],
+  providers: [PlaceService, AuthService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
