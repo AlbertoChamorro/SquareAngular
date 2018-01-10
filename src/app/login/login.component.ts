@@ -7,8 +7,10 @@ import { AuthService } from '../services/auth.services';
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService) {
-      this.authService.login('amchc', '09012');
-  }
+  user: any = {};
+  constructor(private authService: AuthService) {}
 
+  public logIn = () => {
+    this.authService.logIn(this.user.email, this.user.password);
+  }
 }

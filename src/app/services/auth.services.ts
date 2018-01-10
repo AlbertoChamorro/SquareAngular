@@ -4,12 +4,17 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 export class AuthService {
 
-  constructor(private angularFireAuth: AngularFireAuth){
+  constructor(private angularFireAuth: AngularFireAuth) {}
 
-  }
-
-  public login = (email, password) => {
+  public logIn = (email, password) => {
     console.log ('login');
+    this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   public register = (email, password) => {
