@@ -6,7 +6,10 @@ import { AuthService } from '../services/auth.services';
   templateUrl: './register.component.html'
 })
 export class RegisterComponent {
-  constructor(private authService: AuthService) {
-    this.authService.register('amchc', '09012');
-  }
+    user: any = {};
+    constructor(private authService: AuthService) {}
+
+    public register = () => {
+       this.authService.register(this.user.email, this.user.password);
+    }
 }
