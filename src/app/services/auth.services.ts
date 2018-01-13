@@ -42,4 +42,7 @@ export class AuthService {
     this.router.navigate(['places']);
   }
 
+  public getUser() {
+    return this.angularFireAuth.auth;
+  }
 }

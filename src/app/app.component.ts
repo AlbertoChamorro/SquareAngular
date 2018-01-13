@@ -8,14 +8,16 @@ import { AuthService } from './services/auth.services';
 })
 export class AppComponent {
   isLogged = false;
-  user: any =  {};
+  user: any =  null;
   constructor(private authService: AuthService) {
      this.authService.isLogged().subscribe((result) => {
           //console.log();
          // debugger
           if(result && result.uid){
             this.isLogged = true;
-            this.user.email = result.email;
+            setTimeout(() => {
+                this.user = this.authService.getUser().currentUser;
+            }, 500);
           }else{
             this.isLogged = false;
           }
