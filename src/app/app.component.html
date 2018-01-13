@@ -21,21 +21,27 @@
           </ul>
           <!-- right options -->
           <ul class="nav navbar-nav navbar-right">
-              <li><a routerLink="/login">LogIn</a></li>
-              <li><a routerLink="/register">Registrarme</a></li>
-              <li class="dropdown user">
-                  <!-- Menu Toggle Button -->
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                      aria-haspopup="true" aria-expanded="true">Cerrar sesión <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a><i class="fa fa-key" aria-hidden="true"></i> Ver Perfil</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a class="">
-                          <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
+              <ng-container [ngSwitch]="isLogged">
+                  <ng-container *ngSwitchCase="true">
+                      <li class="dropdown user">
+                          <!-- Menu Toggle Button -->
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                              aria-haspopup="true" aria-expanded="true">Cerrar sesión <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a><i class="fa fa-key" aria-hidden="true"></i> Ver Perfil</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a class="">
+                                  <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
+                              </li>
+                          </ul>
                       </li>
-                  </ul>
-              </li>
+                  </ng-container>
+                  <ng-container *ngSwitchDefault>
+                      <li><a routerLink="/login">LogIn</a></li>
+                      <li><a routerLink="/register">Registrarme</a></li>
+                  </ng-container>
+              </ng-container>
           </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

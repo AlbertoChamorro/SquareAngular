@@ -21,6 +21,7 @@ import { CountAnalitycsDirective } from './directives/count-analitycs.directive'
 // services
 import { AuthService } from './services/auth.services';
 import { PlaceService } from './services/place.services';
+import { VerifySessionGuardService } from './services/verify-session-guard.services';
 // dependencies Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -35,7 +36,7 @@ const routes: Routes = [
   {path: 'login',              component: LoginComponent},
   {path: 'register',           component: RegisterComponent},
   {path: 'places',             component: PlaceComponent},
-  {path: 'places/create/:id',  component: PlaceCreateComponent},
+  {path: 'places/create/:id',  component: PlaceCreateComponent, canActivate: [VerifySessionGuardService] },
   {path: 'contact',            component: ContactComponent},
   {path: 'places/detail/:id',  component: PlaceDetailComponent},
 ];
@@ -76,7 +77,7 @@ export const firebaseConfig = {
     HttpModule,
     BrowserAnimationsModule
   ],
-  providers: [PlaceService, AuthService, AngularFireDatabase],
+  providers: [PlaceService, AuthService, VerifySessionGuardService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
