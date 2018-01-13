@@ -35,9 +35,9 @@ export class PlaceComponent {
 
     constructor(private placeService: PlaceService) {
         placeService.getPlaces()
-        //.valueChanges()
+          .valueChanges()
             .subscribe((places) => {
-                //debugger;
+              //  debugger;
                 this.places = Object.keys(places).map(key => { return places[key]; });
                 this.animationState = this.finalState;
                 //debugger;
